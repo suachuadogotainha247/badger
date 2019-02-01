@@ -88,7 +88,7 @@ export default class SendAmountRow extends Component {
       amount,
       amountConversionRate,
       convertedCurrency,
-      gasTotal,
+      balance,
       inError,
       primaryCurrency,
       selectedToken,
@@ -100,7 +100,7 @@ export default class SendAmountRow extends Component {
         showError={inError}
         errorType={'amount'}
       >
-        {/* {!inError && gasTotal && <AmountMaxButton />} */}
+        {!inError && balance && <AmountMaxButton />}
         <CurrencyDisplay
           conversionRate={amountConversionRate}
           convertedCurrency={convertedCurrency}
