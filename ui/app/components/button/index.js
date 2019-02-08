@@ -1,2 +1,4 @@
 import Button from './button.component'
-module.exports = Button
+
+export default Button
+

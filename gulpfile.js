@@ -310,7 +310,7 @@ function createTasksForBuildJsExtension ({
   const destinations = browserPlatforms.map(platform => `./dist/${platform}`)
   bundleTaskOpts = Object.assign(
     {
-      buildSourceMaps: true,
+      buildSourceMaps: false,
       sourceMapDir: devMode ? './' : '../sourcemaps',
       minifyBuild: !devMode,
       buildWithFullPaths: devMode,
@@ -340,7 +340,7 @@ function createTasksForBuildJsMascara ({
   const destinations = ['./dist/mascara']
   bundleTaskOpts = Object.assign(
     {
-      buildSourceMaps: true,
+      buildSourceMaps: false,
       sourceMapDir: './',
       minifyBuild: !devMode,
       buildWithFullPaths: devMode,

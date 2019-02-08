@@ -1,3 +1,5 @@
+// @flow
+
 const inherits = require('util').inherits
 const Component = require('react').Component
 const connect = require('react-redux').connect
@@ -14,16 +16,16 @@ const {
 } = require('../dropdowns/components/menu')
 const Identicon = require('../identicon')
 const { formatBalance } = require('../../util')
-const { ENVIRONMENT_TYPE_POPUP } = require('../../../../app/scripts/lib/enums')
-const { getEnvironmentType } = require('../../../../app/scripts/lib/util')
+// const { ENVIRONMENT_TYPE_POPUP } = require('../../../../app/scripts/lib/enums')
+// const { getEnvironmentType } = require('../../../../app/scripts/lib/util')
 const Tooltip = require('../tooltip')
 
 const {
   SETTINGS_ROUTE,
   INFO_ROUTE,
   NEW_ACCOUNT_ROUTE,
-  IMPORT_ACCOUNT_ROUTE,
-  CONNECT_HARDWARE_ROUTE,
+  // IMPORT_ACCOUNT_ROUTE,
+  // CONNECT_HARDWARE_ROUTE,
   DEFAULT_ROUTE,
 } = require('../../routes')
 
