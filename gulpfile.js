@@ -1,27 +1,30 @@
+// require('@babel/register')
+
 const watchify = require('watchify')
 const browserify = require('browserify')
 const envify = require('envify/custom')
 const disc = require('disc')
 const gulp = require('gulp')
-const source = require('vinyl-source-stream')
-const buffer = require('vinyl-buffer')
 const gutil = require('gulp-util')
 const watch = require('gulp-watch')
 const sourcemaps = require('gulp-sourcemaps')
 const jsoneditor = require('gulp-json-editor')
 const zip = require('gulp-zip')
-const assign = require('lodash.assign')
 const livereload = require('gulp-livereload')
+const sass = require('gulp-sass')
+// const babel = require('gulp-babel')
+const autoprefixer = require('gulp-autoprefixer')
+const gulpStylelint = require('gulp-stylelint')
+const stylefmt = require('gulp-stylefmt')
+const uglify = require('gulp-uglify-es').default
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const assign = require('lodash.assign')
 const del = require('del')
 const fs = require('fs')
 const path = require('path')
 const manifest = require('./app/manifest.json')
 const mkdirp = require('mkdirp')
-const sass = require('gulp-sass')
-const autoprefixer = require('gulp-autoprefixer')
-const gulpStylelint = require('gulp-stylelint')
-const stylefmt = require('gulp-stylefmt')
-const uglify = require('gulp-uglify-es').default
 const pify = require('pify')
 const gulpMultiProcess = require('gulp-multi-process')
 const endOfStream = pify(require('end-of-stream'))
@@ -310,7 +313,7 @@ function createTasksForBuildJsExtension ({
   const destinations = browserPlatforms.map(platform => `./dist/${platform}`)
   bundleTaskOpts = Object.assign(
     {
-      buildSourceMaps: false,
+      buildSourceMaps: true,
       sourceMapDir: devMode ? './' : '../sourcemaps',
       minifyBuild: !devMode,
       buildWithFullPaths: devMode,
@@ -340,7 +343,7 @@ function createTasksForBuildJsMascara ({
   const destinations = ['./dist/mascara']
   bundleTaskOpts = Object.assign(
     {
-      buildSourceMaps: false,
+      buildSourceMaps: true,
       sourceMapDir: './',
       minifyBuild: !devMode,
       buildWithFullPaths: devMode,
@@ -584,6 +587,9 @@ function bundleTask (opts) {
         // loads map from browserify file
         .pipe(sourcemaps.init({ loadMaps: true }))
     }
+    // buildStream = buildStream.pipe(babel({
+    //   presets: ['@babel/env'],
+    // }))
 
     // Minification
     if (opts.minifyBuild) {

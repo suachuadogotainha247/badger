@@ -2,7 +2,8 @@ const Component = require('react').Component
 const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const findDOMNode = require('react-dom').findDOMNode
-const ReactCSSTransitionGroup = require('react-transition-group/CSSTransitionGroup')
+// const ReactCSSTransitionGroup = require('react-transition-group/CSSTransitionGroup')
+const ReactCSSTransitionGroup = require('react-addons-css-transition-group')
 
 module.exports = MenuDroppoComponent
 
