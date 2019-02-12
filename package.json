@@ -327,6 +327,7 @@
     "source-map": "^0.7.3",
     "static-server": "^2.2.1",
     "style-loader": "^0.21.0",
+    "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "tape": "^4.9.1",
     "testem": "^2.13.0",
